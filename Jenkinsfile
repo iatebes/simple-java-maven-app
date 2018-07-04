@@ -11,5 +11,11 @@ pipeline {
         sh 'mvn -B -DskipTests clean package'
       }
     }
+    stage('Check') {
+      steps {
+        sh '''pwd
+ls -la'''
+      }
+    }
   }
 }
