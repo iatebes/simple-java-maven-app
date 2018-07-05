@@ -2,7 +2,6 @@ pipeline {
   agent {
     docker {
       image 'maven'
-      args '-v "$(pwd)":/usr/src/mymaven -w /usr/src/mymaven'
     }
 
   }
