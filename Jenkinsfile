@@ -1,21 +1,10 @@
 pipeline {
-  agent {
-    docker {
-      image 'maven'
+    agent { docker { image 'maven' } }
+    stages {
+        stage('build') {
+            steps {
+                sh 'mvn --version'
+            }
+        }
     }
-
-  }
-  stages {
-    stage('Build') {
-      steps {
-        sh 'mvn -B -DskipTests clean package'
-      }
-    }
-    stage('Check') {
-      steps {
-        sh '''pwd
-ls -la'''
-      }
-    }
-  }
 }
